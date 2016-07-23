@@ -917,6 +917,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69a303bb8e6853e47943abed5a7019f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Water: {fileID: 440356, guid: 7be4bb57ca5c3ec4ba52584a1e7c0d66, type: 2}
 --- !u!1001 &1676331229
 Prefab:
   m_ObjectHideFlags: 0
@@ -1149,6 +1150,10 @@ Prefab:
     - target: {fileID: 440356, guid: 7be4bb57ca5c3ec4ba52584a1e7c0d66, type: 2}
       propertyPath: m_RootOrder
       value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 6516362, guid: 7be4bb57ca5c3ec4ba52584a1e7c0d66, type: 2}
+      propertyPath: m_IsTrigger
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7be4bb57ca5c3ec4ba52584a1e7c0d66, type: 2}

@@ -6,8 +6,8 @@ public class WaterController : MonoBehaviour {
 
     private GameObject[] WaterTiles;
     private GameObject[] FloorTiles;
-    private List<GameObject> TouchingFloorTiles;
-	// Use this for initialization
+    public Transform Water;
+
 	void Start () {
         WaterTiles = GameObject.FindGameObjectsWithTag("Water");
         FloorTiles = GameObject.FindGameObjectsWithTag("Floor");
@@ -18,16 +18,21 @@ public class WaterController : MonoBehaviour {
 
 	}
 
-    void OnCollisionEnter(Collision col)
+    public void Flood()
     {
-
-        // Add the GameObject collided with to the list.
-        TouchingFloorTiles.Add(col.gameObject);
-
-        // Print the entire list to the console.
-        foreach (GameObject gObject in TouchingFloorTiles)
+        foreach (var water in WaterTiles)
         {
-            print(gObject.name);
+            foreach (var floor in FloorTiles)
+            {
+                if (((Mathf.Abs(floor.transform.position.x - water.transform.position.x) <= 1 &&
+                    Mathf.Abs(floor.transform.position.z - water.transform.position.z) == 0)) ||
+                        ((Mathf.Abs(floor.transform.position.x - water.transform.position.x) == 0 &&
+    Mathf.Abs(floor.transform.position.z - water.transform.position.z) <= 1)))
+                {
+                    Instantiate(water, floor.transform.position, floor.transform.rotation);
+                    Destroy(floor);
+                }
+            }
         }
     }
 }
