@@ -996,6 +996,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FloorTile: {fileID: 1675488348}
   playerDirection: 0
+  SideShark: {fileID: 2800000, guid: 7504d978ac06aba46a526f817f9513c9, type: 3}
+  FrontShark: {fileID: 2800000, guid: 58414521a1aa1bd43ad9a1e2d7a35875, type: 3}
+  prevPosition: {x: 0, y: 0, z: 0}
+  prevRotation: {x: 0, y: 0, z: 0, w: 0}
+  speed: 0
 --- !u!4 &1946794856 stripped
 Transform:
   m_PrefabParentObject: {fileID: 493430, guid: 533cd4f0e83aa414dbf0552f9c22e9aa, type: 2}

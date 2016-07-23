@@ -5,6 +5,8 @@ public class SharkMovement : MonoBehaviour
 {
     public Transform FloorTile;
     public float playerDirection;
+    public Texture SideShark;
+    public Texture FrontShark;
     private Vector3 prevPosition;
     private Quaternion prevRotation;
     private float speed;
@@ -19,7 +21,9 @@ public class SharkMovement : MonoBehaviour
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.W))
+        {
             transform.rotation = Quaternion.Euler(0, 0, 0);
+        }
 
         if (Input.GetKeyDown(KeyCode.S))
                 transform.rotation = Quaternion.Euler(0, 180, 0);
