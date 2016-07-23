@@ -42,7 +42,7 @@ public class SharkMovement : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.D))
         {
-            transform.rotation = Quaternion.Euler(0, 90, 90);
+            transform.rotation = Quaternion.Euler(0, -270, 90);
             Renderer.material = RightShark;
         }
 
