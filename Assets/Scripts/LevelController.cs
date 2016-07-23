@@ -1,15 +1,15 @@
 ﻿using UnityEngine;
-using System.Collections;
+using System.Collections.Generic;
 
 public class LevelController : MonoBehaviour {
     public float boardSize;
     public float startingPoint = 10;
     public Transform FloorTile;
     public Camera MainCamera;
+    public Transform Board;
     // Use this for initialization
     void Start () {
         var squareCenter = FloorTile.localScale.y / 2;
-        var parent = new GameObject("Board");
     for (var row = 0; row < boardSize; row++)
         {
             for (var col = 0; col < boardSize; col++)
@@ -19,11 +19,20 @@ public class LevelController : MonoBehaviour {
                     squareCenter, 
                     startingPoint + col + squareCenter), 
                     Quaternion.identity);
-               // FloorTile.transform.parent = parent.transform;
             }
         }
-        //MainCamera.transform.position = new Vector3(startingPoint + (boardSize * FloorTile.localScale.y);
-	}
+        var tiles = GameObject.FindGameObjectsWithTag("Floor");
+        foreach (var tile in tiles)
+        {
+            tile.transform.parent = Board;
+        }
+        
+        Board.transform.position = new Vector3(startingPoint + (boardSize * FloorTile.localScale.y), squareCenter, startingPoint + (boardSize * FloorTile.localScale.y));
+        
+        MainCamera.transform.position = new Vector3(startingPoint + (boardSize * FloorTile.localScale.y) + (boardSize / 2), 
+            20,
+            startingPoint + (boardSize * FloorTile.localScale.y) + (boardSize / 2));
+    }
 	
 	// Update is called once per frame
 	void Update () {
