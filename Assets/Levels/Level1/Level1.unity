@@ -856,6 +856,10 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
+--- !u!4 &1675488348 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 440356, guid: 7be4bb57ca5c3ec4ba52584a1e7c0d66, type: 2}
+  m_PrefabInternal: {fileID: 1981186396}
 --- !u!1001 &1676331229
 Prefab:
   m_ObjectHideFlags: 0
@@ -913,8 +917,9 @@ GameObject:
   - 33: {fileID: 1916551428}
   - 65: {fileID: 1916551427}
   - 23: {fileID: 1916551426}
+  - 114: {fileID: 1916551430}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -978,6 +983,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 4
+--- !u!114 &1916551430
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1916551425}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f700c338567a3e498350817a11e08cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FloorTile: {fileID: 1675488348}
+  playerDirection: 0
 --- !u!4 &1946794856 stripped
 Transform:
   m_PrefabParentObject: {fileID: 493430, guid: 533cd4f0e83aa414dbf0552f9c22e9aa, type: 2}
