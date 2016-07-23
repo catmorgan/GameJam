@@ -29,9 +29,10 @@ public class LevelController : MonoBehaviour {
         
         Board.transform.position = new Vector3(startingPoint + (boardSize * FloorTile.localScale.y), squareCenter, startingPoint + (boardSize * FloorTile.localScale.y));
         
-        MainCamera.transform.position = new Vector3(startingPoint + (boardSize * FloorTile.localScale.y) + (boardSize / 2), 
+        MainCamera.transform.position = new Vector3(Board.transform.position.x - boardSize, 
             20,
-            startingPoint + (boardSize * FloorTile.localScale.y) + (boardSize / 2));
+            Board.transform.position.z - boardSize);
+        MainCamera.orthographicSize = boardSize / 2;
     }
 	
 	// Update is called once per frame
