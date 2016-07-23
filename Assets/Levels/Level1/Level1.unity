@@ -920,7 +920,7 @@ GameObject:
   - 114: {fileID: 1916551430}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -935,7 +935,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 2100000, guid: a5049394c2c5bc44c95fc5ce2854047f, type: 2}
+  - {fileID: 2100000, guid: 5b61843175e9c7443b2012e5c6328022, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
@@ -976,10 +976,10 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1916551425}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0.5000001, y: 0.5, z: 0.5, w: 0.49999994}
   m_LocalPosition: {x: 2.1, y: 0.528841, z: 1.916}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 90}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 4
@@ -996,11 +996,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FloorTile: {fileID: 1675488348}
   playerDirection: 0
-  SideShark: {fileID: 2800000, guid: 7504d978ac06aba46a526f817f9513c9, type: 3}
-  FrontShark: {fileID: 2800000, guid: 58414521a1aa1bd43ad9a1e2d7a35875, type: 3}
-  prevPosition: {x: 0, y: 0, z: 0}
-  prevRotation: {x: 0, y: 0, z: 0, w: 0}
-  speed: 0
+  LeftShark: {fileID: 2100000, guid: 5e5587846f6238248985a4b7b547412c, type: 2}
+  RightShark: {fileID: 2100000, guid: 5b61843175e9c7443b2012e5c6328022, type: 2}
+  FrontShark: {fileID: 2100000, guid: da68514c00b9b3b4db93b71aaa582cbe, type: 2}
+  Renderer: {fileID: 1916551426}
 --- !u!4 &1946794856 stripped
 Transform:
   m_PrefabParentObject: {fileID: 493430, guid: 533cd4f0e83aa414dbf0552f9c22e9aa, type: 2}
