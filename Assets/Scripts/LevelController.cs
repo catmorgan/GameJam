@@ -33,6 +33,7 @@ public class LevelController : MonoBehaviour
                 break;
             case TurnState.Player:
                 LoseConditions();
+                WinConditions();
                 break;
             case TurnState.Water:
                 this.GetComponent<WaterController>().Flood();
@@ -63,23 +64,36 @@ public class LevelController : MonoBehaviour
         }
     }
 
+    void WinConditions()
+    {
+        //gets at least one sailor
+        if (currentPoints > 0 )
+        {
+
+        }
+        //eats all sailors
+        if (currentPoints == TotalPointsPossible)
+        {
+            CurrentState = TurnState.Win;
+        }
+    }
+
     void OnGUI()
     {
-        
-        if (CurrentState == TurnState.Player)
+        if (CurrentState == TurnState.Win || (CurrentState == TurnState.Lose && currentPoints > 0))
         {
-            //if (GUILayout.Button("End Turn"))
-            //{
-            //    CurrentState = TurnState.Water;
-            //}
+            if (GUI.Button(new Rect(Screen.width / 2, Screen.height / 2, 100, 100), "Next Level"))
+            {
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            }
         }
-        if (CurrentState == TurnState.Lose)
+        if (CurrentState == TurnState.Lose && currentPoints == 0)
         {
            GUI.Box(new Rect(Screen.width /2, Screen.height/2, 100,100),"You lose");
         }
         if (GUI.Button(new Rect(20,70,100,50),"Restart"))
         {
-            SceneManager.LoadScene("Level1");
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
         GUI.Box(new Rect(20, 130, 100, 50), "Score: " + currentPoints);
     }
