@@ -106,6 +106,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   drownCountdown: 0
   Drowned: {fileID: 2100000, guid: c782a47a7f1ee7a4d8ff10c279a7636c, type: 2}
+  Dead: {fileID: 2100000, guid: dc754c85b6a465f47ac577f83657091c, type: 2}
   Renderer: {fileID: 2338104}
   _SailorState: 1
 --- !u!1001 &100100000

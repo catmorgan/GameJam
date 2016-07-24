@@ -5,6 +5,7 @@ public class SailorController : MonoBehaviour {
     private LevelController _levelController;
     public int drownCountdown = 0;
     public Material Drowned;
+    public Material Dead;
     public Renderer Renderer;
     public SailorState _SailorState;
 
@@ -32,11 +33,22 @@ public class SailorController : MonoBehaviour {
     {
         if (col.transform.tag == "Water")
         {
-            if (_levelController.CurrentState == LevelController.TurnState.Victim)
+            if (_levelController.CurrentState == LevelController.TurnState.Victim && _SailorState == SailorState.Alive)
             {
                 drownCountdown++;
                 StillAlive();
             }
+        }
+
+    }
+
+    void OnCollisionEnter(Collision col)
+    {
+        if (col.transform.tag == "Player")
+        {
+            _SailorState = SailorState.Dead;
+            Renderer.material = Dead;
+            _levelController.currentPoints++;
         }
     }
 

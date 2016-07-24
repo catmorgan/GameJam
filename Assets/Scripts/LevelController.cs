@@ -1,8 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 
 public class LevelController : MonoBehaviour
 {
+    private int TotalPointsPossible;
+    public int currentPoints = 0;
 
     public enum TurnState
     {
@@ -19,6 +22,7 @@ public class LevelController : MonoBehaviour
     void Start()
     {
         CurrentState = TurnState.Player;
+        TotalPointsPossible = GameObject.FindGameObjectsWithTag("Sailor").Length;
     }
 
     void Update()
@@ -61,6 +65,7 @@ public class LevelController : MonoBehaviour
 
     void OnGUI()
     {
+        
         if (CurrentState == TurnState.Player)
         {
             //if (GUILayout.Button("End Turn"))
@@ -70,8 +75,13 @@ public class LevelController : MonoBehaviour
         }
         if (CurrentState == TurnState.Lose)
         {
-           // new GUILayout.TextArea("You lose");
+           GUI.Box(new Rect(Screen.width /2, Screen.height/2, 100,100),"You lose");
         }
+        if (GUI.Button(new Rect(20,70,100,50),"Restart"))
+        {
+            SceneManager.LoadScene("Level1");
+        }
+        GUI.Box(new Rect(20, 130, 100, 50), "Score: " + currentPoints);
     }
 
 }
