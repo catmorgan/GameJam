@@ -11,6 +11,7 @@ GameObject:
   - 33: {fileID: 3393820}
   - 65: {fileID: 6593434}
   - 23: {fileID: 2355968}
+  - 114: {fileID: 11492448}
   m_Layer: 0
   m_Name: Torpedo
   m_TagString: Untagged
@@ -76,6 +77,21 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &11492448
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 174974}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ec3dc4df65e2da4aaf7dde9b0604be3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waterTile01: {fileID: 2100000, guid: d45022af37b9662489322f777398a197, type: 2}
+  Renderer: {fileID: 0}
+  _TorpedoState: 1
+  SharkBite: {fileID: 115308, guid: 260e4dce66dbdb64ca67046d6a0024b0, type: 2}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
