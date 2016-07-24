@@ -55,14 +55,14 @@ public class LevelController : MonoBehaviour
     {
         if (CurrentState == TurnState.Player)
         {
-            if (GUILayout.Button("End Turn"))
-            {
-                CurrentState = TurnState.Water;
-            }
+            //if (GUILayout.Button("End Turn"))
+            //{
+            //    CurrentState = TurnState.Water;
+            //}
         }
         if (CurrentState == TurnState.Lose)
         {
-            //GUILayout.TextArea("You lose");
+           // new GUILayout.TextArea("You lose");
         }
     }
 
