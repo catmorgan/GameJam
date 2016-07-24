@@ -45,29 +45,29 @@ public class SharkMovement : MonoBehaviour
         if (_levelController.CurrentState == LevelController.TurnState.Player)
         {
             //DIRECTION
-            if (Input.GetKeyDown(KeyCode.W))
+            if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))
             {
                 transform.rotation = Quaternion.Euler(0, 0, 0);
                 UpdateShark(Direction.Up);
             }
-            if (Input.GetKeyDown(KeyCode.S))
+            if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow))
             {
                 transform.rotation = Quaternion.Euler(0, 180, 0);
                 UpdateShark(Direction.Down);
             }
 
-            if (Input.GetKeyDown(KeyCode.A))
+            if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow))
             {
                 transform.rotation = Quaternion.Euler(0, 90, 90);
                 UpdateShark(Direction.Left);
             }
-            if (Input.GetKeyDown(KeyCode.D))
+            if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow))
             {
                 transform.rotation = Quaternion.Euler(0, -270, 90);
                 UpdateShark(Direction.Right);
             }
             //MOVEMENT
-            if (Input.GetKeyDown(KeyCode.W) && prevRotation == transform.rotation)
+            if ((Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow)) && prevRotation == transform.rotation)
             {
                 prevPosition.z += speed;
                 
@@ -75,21 +75,21 @@ public class SharkMovement : MonoBehaviour
                 //UpdateShark(Direction.Up);
                 _levelController.CurrentState = LevelController.TurnState.Water;
             }
-            if (Input.GetKeyDown(KeyCode.S) && prevRotation == transform.rotation)
+            if ((Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow)) && prevRotation == transform.rotation)
             {
                 prevPosition.z -= speed;
                 playerDirection = Direction.Down;
                 //UpdateShark(Direction.Down);
                 _levelController.CurrentState = LevelController.TurnState.Water;
             }
-            if (Input.GetKeyDown(KeyCode.A) && prevRotation == transform.rotation)
+            if ((Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow)) && prevRotation == transform.rotation)
             {
                 prevPosition.x -= speed;
                 playerDirection = Direction.Left;
                 //UpdateShark(Direction.Left);
                 _levelController.CurrentState = LevelController.TurnState.Water;
             }
-            if (Input.GetKeyDown(KeyCode.D) && prevRotation == transform.rotation)
+            if ((Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow)) && prevRotation == transform.rotation)
             {
                 prevPosition.x += speed;
                 playerDirection = Direction.Right;
