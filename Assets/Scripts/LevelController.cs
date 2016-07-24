@@ -35,7 +35,6 @@ public class LevelController : MonoBehaviour
                 CurrentState = TurnState.Player;
                 break;
             case TurnState.Lose:
-                GUILayout.TextArea("You lose");
                 break;
             case TurnState.Win:
                 break;
@@ -60,6 +59,10 @@ public class LevelController : MonoBehaviour
             {
                 CurrentState = TurnState.Water;
             }
+        }
+        if (CurrentState == TurnState.Lose)
+        {
+            //GUILayout.TextArea("You lose");
         }
     }
 

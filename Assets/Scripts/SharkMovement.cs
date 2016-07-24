@@ -8,10 +8,20 @@ public class SharkMovement : MonoBehaviour
     public Material LeftShark;
     public Material RightShark;
     public Material FrontShark;
+    public Material FrontLandShark;
+    public Material LeftLandShark;
+    public Material RightLandShark;
     public Renderer Renderer;
     private Vector3 prevPosition;
     private Quaternion prevRotation;
     private float speed;
+    private FloorType floorType;
+    
+    public enum FloorType
+    {
+        Water,
+        Floor
+    }
 
     void Start()
     {
@@ -26,28 +36,57 @@ public class SharkMovement : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.W))
         {
             transform.rotation = Quaternion.Euler(0, 0, 0);
-            Renderer.material = FrontShark;
+            if (floorType == FloorType.Water)
+            {
+                Renderer.material = FrontShark;
+            } else if (floorType == FloorType.Floor)
+            {
+                Renderer.material = FrontLandShark;
+            }
         }
 
         if (Input.GetKeyDown(KeyCode.S))
         {
             transform.rotation = Quaternion.Euler(0, 180, 0);
-            Renderer.material = FrontShark;
+            if (floorType == FloorType.Water)
+            {
+                Renderer.material = FrontShark;
+            }
+            else if (floorType == FloorType.Floor)
+            {
+                Renderer.material = FrontLandShark;
+            }
         }
 
         if (Input.GetKeyDown(KeyCode.A))
         {
             transform.rotation = Quaternion.Euler(0, 90, 90);
-            Renderer.material = LeftShark;
+            if (floorType == FloorType.Water)
+            {
+                Renderer.material = LeftShark;
+            }
+            else if (floorType == FloorType.Floor)
+            {
+                Renderer.material = LeftLandShark;
+            }
         }
         if (Input.GetKeyDown(KeyCode.D))
         {
             transform.rotation = Quaternion.Euler(0, -270, 90);
-            Renderer.material = RightShark;
+            if (floorType == FloorType.Water)
+            {
+                Renderer.material = RightShark;
+            }
+            else if (floorType == FloorType.Floor)
+            {
+                Renderer.material = RightLandShark;
+            }
         }
 
         if (Input.GetKeyDown(KeyCode.W) && prevRotation == transform.rotation)
+        {
             prevPosition.z += speed;
+        }
         if (Input.GetKeyDown(KeyCode.S) && prevRotation == transform.rotation)
             prevPosition.z -= speed;
         if (Input.GetKeyDown(KeyCode.A) && prevRotation == transform.rotation)
@@ -57,5 +96,17 @@ public class SharkMovement : MonoBehaviour
 
         prevRotation = transform.rotation;
         transform.position = prevPosition;
+    }
+
+    void OnCollisionEnter (Collision col)
+    {
+        var tile = col.transform.tag;
+        if (tile == "Water")
+        {
+            floorType = FloorType.Water;
+        } else if( tile == "Floor")
+        {
+            floorType = FloorType.Floor;
+        }
     }
 }
