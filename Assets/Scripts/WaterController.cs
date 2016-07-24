@@ -3,23 +3,21 @@ using System.Collections;
 using System.Collections.Generic;
 
 public class WaterController : MonoBehaviour {
-
-    private GameObject[] WaterTiles;
-    private GameObject[] FloorTiles;
     public Transform Water;
 
 	void Start () {
-        WaterTiles = GameObject.FindGameObjectsWithTag("Water");
-        FloorTiles = GameObject.FindGameObjectsWithTag("Floor");
 	}
 	
 	// Update is called once per frame
 	void Update () {
 
+        //Flood();
 	}
 
     public void Flood()
     {
+        var WaterTiles = GameObject.FindGameObjectsWithTag("Water");
+        var FloorTiles = GameObject.FindGameObjectsWithTag("Floor");
         foreach (var water in WaterTiles)
         {
             foreach (var floor in FloorTiles)
@@ -33,6 +31,11 @@ public class WaterController : MonoBehaviour {
                     Destroy(floor);
                 }
             }
+        }
+        var UpdatedWaterTiles = GameObject.FindGameObjectsWithTag("Water");
+        foreach (var tile in UpdatedWaterTiles)
+        {
+            tile.transform.parent = GameObject.Find("Board2").transform;
         }
     }
 }

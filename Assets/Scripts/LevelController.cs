@@ -1,42 +1,66 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
 
-public class LevelController : MonoBehaviour {
-    public float boardSize;
-    public float startingPoint = 10;
-    public Transform FloorTile;
-    public Camera MainCamera;
-    public Transform Board;
-    // Use this for initialization
-    void Start () {
-        var squareCenter = FloorTile.localScale.y / 2;
-    for (var row = 0; row < boardSize; row++)
+public class LevelController : MonoBehaviour
+{
+
+    public enum TurnState
+    {
+        Start,
+        Player,
+        Water,
+        Victim,
+        Lose,
+        Win
+    }
+
+    public TurnState CurrentState;
+
+    void Start()
+    {
+        CurrentState = TurnState.Player;
+    }
+
+    void Update()
+    {
+        switch (CurrentState)
         {
-            for (var col = 0; col < boardSize; col++)
+            case TurnState.Start:
+                break;
+            case TurnState.Player:
+                LoseConditions();
+                break;
+            case TurnState.Water:
+                this.GetComponent<WaterController>().Flood();
+                CurrentState = TurnState.Player;
+                break;
+            case TurnState.Lose:
+                GUILayout.TextArea("You lose");
+                break;
+            case TurnState.Win:
+                break;
+            case TurnState.Victim:
+                break;
+        }
+    }
+
+    void LoseConditions() {
+        var FloorTiles = GameObject.FindGameObjectsWithTag("Floor");
+        if (FloorTiles.Length == 0)
+        {
+            CurrentState = TurnState.Lose;
+        }
+    }
+
+    void OnGUI()
+    {
+        if (CurrentState == TurnState.Player)
+        {
+            if (GUILayout.Button("End Turn"))
             {
-                    Instantiate(FloorTile, 
-                    new Vector3(startingPoint + row + squareCenter, 
-                    squareCenter, 
-                    startingPoint + col + squareCenter), 
-                    Quaternion.identity);
+                CurrentState = TurnState.Water;
             }
         }
-        var tiles = GameObject.FindGameObjectsWithTag("Floor");
-        foreach (var tile in tiles)
-        {
-            tile.transform.parent = Board;
-        }
-        
-        Board.transform.position = new Vector3(startingPoint + (boardSize * FloorTile.localScale.y), squareCenter, startingPoint + (boardSize * FloorTile.localScale.y));
-        
-        MainCamera.transform.position = new Vector3(Board.transform.position.x - boardSize, 
-            20,
-            Board.transform.position.z - boardSize);
-        MainCamera.orthographicSize = boardSize / 2;
     }
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+
 }
