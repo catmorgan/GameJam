@@ -67,7 +67,7 @@ public class SharkMovement : MonoBehaviour
                 UpdateShark(Direction.Right);
             }
             //MOVEMENT
-            if ((Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow)) && prevRotation == transform.rotation)
+            if ((Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow)) && isValidMove(Direction.Up) == true && prevRotation == transform.rotation)
             {
                 prevPosition.z += speed;
                 
@@ -75,21 +75,21 @@ public class SharkMovement : MonoBehaviour
                 //UpdateShark(Direction.Up);
                 _levelController.CurrentState = LevelController.TurnState.Water;
             }
-            if ((Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow)) && prevRotation == transform.rotation)
+            if ((Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow)) && isValidMove(Direction.Down) == true && prevRotation == transform.rotation)
             {
                 prevPosition.z -= speed;
                 playerDirection = Direction.Down;
                 //UpdateShark(Direction.Down);
                 _levelController.CurrentState = LevelController.TurnState.Water;
             }
-            if ((Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow)) && prevRotation == transform.rotation)
+            if ((Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow)) && isValidMove(Direction.Left) == true && prevRotation == transform.rotation)
             {
                 prevPosition.x -= speed;
                 playerDirection = Direction.Left;
                 //UpdateShark(Direction.Left);
                 _levelController.CurrentState = LevelController.TurnState.Water;
             }
-            if ((Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow)) && prevRotation == transform.rotation)
+            if ((Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow)) && isValidMove(Direction.Right) == true && prevRotation == transform.rotation)
             {
                 prevPosition.x += speed;
                 playerDirection = Direction.Right;
@@ -116,6 +116,13 @@ public class SharkMovement : MonoBehaviour
 
         UpdateShark(playerDirection);
     }
+
+    bool isValidMove(Direction dir)
+    {
+        //Call the raycast function to check.  TODO
+        return true;
+    }
+
 
     void UpdateShark(Direction dir)
     {
