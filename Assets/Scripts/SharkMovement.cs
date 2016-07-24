@@ -11,7 +11,8 @@ public class SharkMovement : MonoBehaviour
     public Material LeftLandShark;
     public Material RightLandShark;
     public Renderer Renderer;
-    private Vector3 prevPosition;
+	public LayerMask myLayerMask;
+	private Vector3 prevPosition;
     private Quaternion prevRotation;
     private float speed;
     private FloorType floorType;
@@ -42,65 +43,75 @@ public class SharkMovement : MonoBehaviour
     }
 
     void Update() {
-        if (_levelController.CurrentState == LevelController.TurnState.Player)
-        {
-            //DIRECTION
-            if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))
-            {
-                transform.rotation = Quaternion.Euler(0, 0, 0);
-                UpdateShark(Direction.Up);
-            }
-            if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow))
-            {
-                transform.rotation = Quaternion.Euler(0, 180, 0);
-                UpdateShark(Direction.Down);
-            }
+		bool test = checkRaycast ();
+		print(test);
 
-            if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow))
-            {
-                transform.rotation = Quaternion.Euler(0, 90, 90);
-                UpdateShark(Direction.Left);
-            }
-            if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow))
-            {
-                transform.rotation = Quaternion.Euler(0, -270, 90);
-                UpdateShark(Direction.Right);
-            }
-            //MOVEMENT
-            if ((Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow)) && prevRotation == transform.rotation)
-            {
-                prevPosition.z += speed;
-                
-                playerDirection = Direction.Up;
-                //UpdateShark(Direction.Up);
-                _levelController.CurrentState = LevelController.TurnState.Water;
-            }
-            if ((Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow)) && prevRotation == transform.rotation)
-            {
-                prevPosition.z -= speed;
-                playerDirection = Direction.Down;
-                //UpdateShark(Direction.Down);
-                _levelController.CurrentState = LevelController.TurnState.Water;
-            }
-            if ((Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow)) && prevRotation == transform.rotation)
-            {
-                prevPosition.x -= speed;
-                playerDirection = Direction.Left;
-                //UpdateShark(Direction.Left);
-                _levelController.CurrentState = LevelController.TurnState.Water;
-            }
-            if ((Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow)) && prevRotation == transform.rotation)
-            {
-                prevPosition.x += speed;
-                playerDirection = Direction.Right;
-                //UpdateShark(Direction.Right);
-                _levelController.CurrentState = LevelController.TurnState.Water;
-            }
+		if (_levelController.CurrentState == LevelController.TurnState.Player) 
+		{
+			//DIRECTION
+			if (Input.GetKeyDown (KeyCode.W) || Input.GetKeyDown (KeyCode.UpArrow)) {
+				transform.rotation = Quaternion.Euler (0, 0, 0);
+				UpdateShark (Direction.Up);
+			}
+			if (Input.GetKeyDown (KeyCode.S) || Input.GetKeyDown (KeyCode.DownArrow)) {
+				transform.rotation = Quaternion.Euler (0, 180, 0);
+				UpdateShark (Direction.Down);
+			}
 
-            prevRotation = transform.rotation;
-            transform.position = prevPosition;
-        }
-    }
+			if (Input.GetKeyDown (KeyCode.A) || Input.GetKeyDown (KeyCode.LeftArrow)) {
+				transform.rotation = Quaternion.Euler (0, -90, 0);
+				UpdateShark (Direction.Left);
+
+			}
+			if (Input.GetKeyDown (KeyCode.D) || Input.GetKeyDown (KeyCode.RightArrow)) {
+				transform.rotation = Quaternion.Euler (0, 90, 0);
+				UpdateShark (Direction.Right);
+
+			}
+			//MOVEMENT
+			if ((Input.GetKeyDown (KeyCode.W) || Input.GetKeyDown (KeyCode.UpArrow)) && prevRotation == transform.rotation) 
+			{
+				if (checkRaycast ()) {
+					prevPosition.z += speed;
+
+					playerDirection = Direction.Up;
+					//UpdateShark(Direction.Up);
+					_levelController.CurrentState = LevelController.TurnState.Water;
+				}
+
+			}
+			if ((Input.GetKeyDown (KeyCode.S) || Input.GetKeyDown (KeyCode.DownArrow)) && prevRotation == transform.rotation) 
+			{
+				if (checkRaycast ()) {
+					prevPosition.z -= speed;
+					playerDirection = Direction.Down;
+					//UpdateShark(Direction.Down);
+					_levelController.CurrentState = LevelController.TurnState.Water;
+				}
+			}
+			if ((Input.GetKeyDown (KeyCode.A) || Input.GetKeyDown (KeyCode.LeftArrow)) && prevRotation == transform.rotation) 
+			{
+				if (checkRaycast ()) {
+					prevPosition.x -= speed;
+					playerDirection = Direction.Left;
+					//UpdateShark(Direction.Left);
+					_levelController.CurrentState = LevelController.TurnState.Water;
+				}
+			}
+			if ((Input.GetKeyDown (KeyCode.D) || Input.GetKeyDown (KeyCode.RightArrow)) && prevRotation == transform.rotation) {
+				if (checkRaycast ()) {
+					prevPosition.x += speed;
+					playerDirection = Direction.Right;
+					//UpdateShark(Direction.Right);
+					_levelController.CurrentState = LevelController.TurnState.Water;
+				}
+			}
+
+			prevRotation = transform.rotation;
+			transform.position = prevPosition;
+		}
+	}
+
 
     void OnCollisionEnter (Collision col)
     {
@@ -117,6 +128,35 @@ public class SharkMovement : MonoBehaviour
         UpdateShark(playerDirection);
     }
 
+	bool checkRaycast()
+	{
+		RaycastHit hit;
+		Vector3 fwd = transform.TransformDirection(Vector3.forward);
+
+		if (Physics.Raycast (transform.position, fwd, out hit, 1)) 
+		{
+			Debug.DrawRay (transform.position, fwd, Color.red);
+
+			string hitObject = hit.collider.tag;
+
+			print ("hit distance is " + hit.distance);
+			print ("hit object is " + hitObject);
+			//		print (hit.collider.tag);
+
+			//		return true;
+
+			if (hitObject == "Floor" || hitObject == "Water")
+				return true;
+			else
+				return false;
+		}
+
+		else
+			return false;
+
+
+
+	}
     void UpdateShark(Direction dir)
     {
         switch (dir)

@@ -7,45 +7,55 @@ public class RayCast : MonoBehaviour {
     // Update is called once per frame
     void Update () {
         RaycastHit hit;
-        float rayDistance;
-        Collider rayHitObject;
-        
+//		Collider rayHitObject;
+
+//        float rayDistance;
+//        Collider rayHitObject;
+		Vector3 fwd = transform.TransformDirection(Vector3.forward);
 
         //Debug make the ray visible
-        Vector3 forward = transform.TransformDirection(Vector3.forward) * 2;
-        Debug.DrawRay(transform.position,forward,Color.red);
+//        Vector3 forward = transform.TransformDirection(Vector3.forward) * 2;
+//        Debug.DrawRay(transform.position,forward,Color.red);
+
+		if (Physics.Raycast(transform.position, fwd, out hit, 2, myLayerMask))
+			Debug.DrawRay(transform.position, fwd, Color.red);
+
+		print (hit.distance);
+		print (hit.collider.gameObject.name);
+		print (hit.collider.tag);
 
 
-        if (Physics.Raycast(transform.position, (forward), out hit, myLayerMask))
-        {
-            rayDistance = hit.distance;
-            rayHitObject = hit.collider;
-            print("RayHit Object is " + rayHitObject);
-            
-            print(rayDistance + " " + hit.collider.gameObject.name);
-
-            //what did we hit?
-            
-            if (hit.collider.tag == "Boxes" || hit.collider.tag == "Wall")
-            {
-                if (hit.distance == 1)
-                {
-                    //bad normal move 
-                    //return false;
-                    print("bad normal Move");
-                }
-                else
-                {
-                    //bad lunge move
-                    print("bad lunge move");
-                }
-            }
-            else
-            {
-                //Good Move
-                print("Good Move");
-            }
-
-        }
+//
+//        if (Physics.Raycast(transform.position, (forward), out hit, myLayerMask))
+//        {
+//            rayDistance = hit.distance;
+//            rayHitObject = hit.collider;
+//            print("RayHit Object is " + rayHitObject);
+//            
+//            print(rayDistance + " " + hit.collider.gameObject.name);
+//
+//            //what did we hit?
+//            
+//            if (hit.collider.tag == "Boxes" || hit.collider.tag == "Wall")
+//            {
+//                if (hit.distance == 1)
+//                {
+//                    //bad normal move 
+//                    //return false;
+//                    print("bad normal Move");
+//                }
+//                else
+//                {
+//                    //bad lunge move
+//                    print("bad lunge move");
+//                }
+//            }
+//            else
+//            {
+//                //Good Move
+//                print("Good Move");
+//            }
+//
+//        }
     }
 }
