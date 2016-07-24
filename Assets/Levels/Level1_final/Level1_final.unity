@@ -255,48 +255,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 84e13318773712a4e82653981cd5d402, type: 2}
   m_IsPrefabParent: 0
---- !u!1001 &665020144
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 1946794856}
-    m_Modifications:
-    - target: {fileID: 446728, guid: f456b5bf4d44d4749bbdb4418bbaeceb, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: -7
-      objectReference: {fileID: 0}
-    - target: {fileID: 446728, guid: f456b5bf4d44d4749bbdb4418bbaeceb, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 446728, guid: f456b5bf4d44d4749bbdb4418bbaeceb, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: -6
-      objectReference: {fileID: 0}
-    - target: {fileID: 446728, guid: f456b5bf4d44d4749bbdb4418bbaeceb, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 446728, guid: f456b5bf4d44d4749bbdb4418bbaeceb, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 446728, guid: f456b5bf4d44d4749bbdb4418bbaeceb, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 446728, guid: f456b5bf4d44d4749bbdb4418bbaeceb, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 446728, guid: f456b5bf4d44d4749bbdb4418bbaeceb, type: 2}
-      propertyPath: m_RootOrder
-      value: 29
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: f456b5bf4d44d4749bbdb4418bbaeceb, type: 2}
-  m_IsPrefabParent: 0
 --- !u!1001 &829627069
 Prefab:
   m_ObjectHideFlags: 0
@@ -422,7 +380,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 440356, guid: 7be4bb57ca5c3ec4ba52584a1e7c0d66, type: 2}
       propertyPath: m_RootOrder
-      value: 24
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 6516362, guid: 7be4bb57ca5c3ec4ba52584a1e7c0d66, type: 2}
       propertyPath: m_IsTrigger
@@ -534,7 +492,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 441460, guid: 561afdc56fd4342478476a291c6c1c4a, type: 2}
       propertyPath: m_RootOrder
-      value: 26
+      value: 18
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 561afdc56fd4342478476a291c6c1c4a, type: 2}
@@ -772,7 +730,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 422826, guid: 84e13318773712a4e82653981cd5d402, type: 2}
       propertyPath: m_RootOrder
-      value: 19
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 145134, guid: 84e13318773712a4e82653981cd5d402, type: 2}
       propertyPath: m_Name
@@ -1063,7 +1021,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 440356, guid: 7be4bb57ca5c3ec4ba52584a1e7c0d66, type: 2}
       propertyPath: m_RootOrder
-      value: 25
+      value: 17
       objectReference: {fileID: 0}
     - target: {fileID: 6516362, guid: 7be4bb57ca5c3ec4ba52584a1e7c0d66, type: 2}
       propertyPath: m_IsTrigger
@@ -1092,6 +1050,52 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Water: {fileID: 440356, guid: 7be4bb57ca5c3ec4ba52584a1e7c0d66, type: 2}
+--- !u!1001 &1751000426
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1946794856}
+    m_Modifications:
+    - target: {fileID: 441460, guid: 561afdc56fd4342478476a291c6c1c4a, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -7
+      objectReference: {fileID: 0}
+    - target: {fileID: 441460, guid: 561afdc56fd4342478476a291c6c1c4a, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0.100000024
+      objectReference: {fileID: 0}
+    - target: {fileID: 441460, guid: 561afdc56fd4342478476a291c6c1c4a, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -6
+      objectReference: {fileID: 0}
+    - target: {fileID: 441460, guid: 561afdc56fd4342478476a291c6c1c4a, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 441460, guid: 561afdc56fd4342478476a291c6c1c4a, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 441460, guid: 561afdc56fd4342478476a291c6c1c4a, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 441460, guid: 561afdc56fd4342478476a291c6c1c4a, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 441460, guid: 561afdc56fd4342478476a291c6c1c4a, type: 2}
+      propertyPath: m_RootOrder
+      value: 19
+      objectReference: {fileID: 0}
+    - target: {fileID: 103986, guid: 561afdc56fd4342478476a291c6c1c4a, type: 2}
+      propertyPath: m_Name
+      value: Crate (1)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 561afdc56fd4342478476a291c6c1c4a, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1001 &1764573218
 Prefab:
   m_ObjectHideFlags: 0
@@ -1129,7 +1133,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 422826, guid: 84e13318773712a4e82653981cd5d402, type: 2}
       propertyPath: m_RootOrder
-      value: 18
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 145134, guid: 84e13318773712a4e82653981cd5d402, type: 2}
       propertyPath: m_Name
@@ -1379,7 +1383,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 440356, guid: 7be4bb57ca5c3ec4ba52584a1e7c0d66, type: 2}
       propertyPath: m_RootOrder
-      value: 13
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 6516362, guid: 7be4bb57ca5c3ec4ba52584a1e7c0d66, type: 2}
       propertyPath: m_IsTrigger
