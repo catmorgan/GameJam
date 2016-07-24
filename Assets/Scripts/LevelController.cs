@@ -82,7 +82,7 @@ public class LevelController : MonoBehaviour
     {
         if (CurrentState == TurnState.Win || (CurrentState == TurnState.Lose && currentPoints > 0))
         {
-            if (GUI.Button(new Rect(Screen.width / 2, Screen.height / 2, 100, 100), "Next Level"))
+            if (GUI.Button(new Rect(Screen.width / 2, Screen.height / 2, 100, 20), "Next Level"))
             {
                 SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
             }
