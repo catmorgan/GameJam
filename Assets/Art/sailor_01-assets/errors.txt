@@ -1,0 +1,1 @@
+[7/23/2016, 6:27:09 PM] layer "sailor_standing_01.png copy": Expected end of input but "c" found.
