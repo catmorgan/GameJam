@@ -48,10 +48,10 @@ public class SailorController : MonoBehaviour {
         if (col.transform.tag == "Player" && _SailorState == SailorState.Alive)
         {
 
-            var sharkbite = Instantiate(SharkBite, 
-                Camera.main.ScreenToWorldPoint(new Vector3(
-                    Screen.width / 2, Screen.height / 2,
-                Camera.main.nearClipPlane)),
+            var sharkbite = Instantiate(SharkBite, new Vector3(
+                Camera.main.transform.position.x,
+                2,
+                Camera.main.transform.position.z),
                     SharkBite.transform.rotation) as GameObject;
 
             yield return new WaitForSeconds(0.4f);
