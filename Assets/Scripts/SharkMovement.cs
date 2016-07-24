@@ -3,46 +3,46 @@ using System.Collections;
 
 public class SharkMovement : MonoBehaviour
 {
-    public Transform FloorTile;
-    public Material LeftShark;
-    public Material RightShark;
-    public Material FrontShark;
-    public Material FrontLandShark;
-    public Material LeftLandShark;
-    public Material RightLandShark;
-    public Renderer Renderer;
+	public Transform FloorTile;
+	public Material LeftShark;
+	public Material RightShark;
+	public Material FrontShark;
+	public Material FrontLandShark;
+	public Material LeftLandShark;
+	public Material RightLandShark;
+	public Renderer Renderer;
 	public LayerMask myLayerMask;
 	private Vector3 prevPosition;
-    private Quaternion prevRotation;
-    private float speed;
-    private FloorType floorType;
-    private LevelController _levelController;
-    private Direction playerDirection;
+	private Quaternion prevRotation;
+	private float speed;
+	private FloorType floorType;
+	private LevelController _levelController;
+	private Direction playerDirection;
 
-    public enum FloorType
-    {
-        Water,
-        Floor
-    }
+	public enum FloorType
+	{
+		Water,
+		Floor
+	}
 
-    public enum Direction
-    {
-        Up,
-        Down,
-        Left,
-        Right
-    }
+	public enum Direction
+	{
+		Up,
+		Down,
+		Left,
+		Right
+	}
 
-    void Start()
-    {
-        prevPosition = transform.position;
-        prevRotation = transform.rotation;
-        speed = FloorTile.localScale.x;
-        Renderer = GetComponent<Renderer>();
-        _levelController = GameObject.Find("Main Camera").GetComponent<LevelController>();
-    }
+	void Start()
+	{
+		prevPosition = transform.position;
+		prevRotation = transform.rotation;
+		speed = FloorTile.localScale.x;
+		Renderer = GetComponent<Renderer>();
+		_levelController = GameObject.Find("Main Camera").GetComponent<LevelController>();
+	}
 
-    void Update() {
+	void Update() {
 		bool test = checkRaycast ();
 		print(test);
 
@@ -113,20 +113,20 @@ public class SharkMovement : MonoBehaviour
 	}
 
 
-    void OnCollisionEnter (Collision col)
-    {
-        var tile = col.transform.tag;
-        Debug.Log(tile);
-        if (tile == "Water")
-        {
-            floorType = FloorType.Water;
-        } else if( tile == "Floor")
-        {
-            floorType = FloorType.Floor;
-        }
+	void OnCollisionEnter (Collision col)
+	{
+		var tile = col.transform.tag;
+		Debug.Log(tile);
+		if (tile == "Water")
+		{
+			floorType = FloorType.Water;
+		} else if( tile == "Floor")
+		{
+			floorType = FloorType.Floor;
+		}
 
-        UpdateShark(playerDirection);
-    }
+		UpdateShark(playerDirection);
+	}
 
 	bool checkRaycast()
 	{
@@ -153,54 +153,51 @@ public class SharkMovement : MonoBehaviour
 
 		else
 			return false;
-
-
-
 	}
-    void UpdateShark(Direction dir)
-    {
-        switch (dir)
-        {
-            case Direction.Right:
-                if (floorType == FloorType.Water)
-                {
-                    Renderer.material = RightShark;
-                }
-                else if (floorType == FloorType.Floor)
-                {
-                    Renderer.material = RightLandShark;
-                }
-                break;
-            case Direction.Left:
-                if (floorType == FloorType.Water)
-                {
-                    Renderer.material = LeftShark;
-                }
-                else if (floorType == FloorType.Floor)
-                {
-                    Renderer.material = LeftLandShark;
-                }
-                break;
-            case Direction.Up:
-                if (floorType == FloorType.Water)
-                {
-                    Renderer.material = FrontShark;
-                }
-                else if (floorType == FloorType.Floor)
-                {
-                    Renderer.material = FrontLandShark;
-                }
-                break;
-            case Direction.Down:
-                if (floorType == FloorType.Water)
-                {
-                    Renderer.material = FrontShark;
-                }
-                else if (floorType == FloorType.Floor)
-                {
-                    Renderer.material = FrontLandShark;
-                }
-                break;
-        }
-    }
+	void UpdateShark(Direction dir)
+	{
+		switch (dir)
+		{
+		case Direction.Right:
+			if (floorType == FloorType.Water)
+			{
+				Renderer.material = RightShark;
+			}
+			else if (floorType == FloorType.Floor)
+			{
+				Renderer.material = RightLandShark;
+			}
+			break;
+		case Direction.Left:
+			if (floorType == FloorType.Water)
+			{
+				Renderer.material = LeftShark;
+			}
+			else if (floorType == FloorType.Floor)
+			{
+				Renderer.material = LeftLandShark;
+			}
+			break;
+		case Direction.Up:
+			if (floorType == FloorType.Water)
+			{
+				Renderer.material = FrontShark;
+			}
+			else if (floorType == FloorType.Floor)
+			{
+				Renderer.material = FrontLandShark;
+			}
+			break;
+		case Direction.Down:
+			if (floorType == FloorType.Water)
+			{
+				Renderer.material = FrontShark;
+			}
+			else if (floorType == FloorType.Floor)
+			{
+				Renderer.material = FrontLandShark;
+			}
+			break;
+		}
+	}
 }
