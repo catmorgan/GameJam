@@ -91,11 +91,11 @@ public class LevelController : MonoBehaviour
         {
            GUI.Box(new Rect(Screen.width /2, Screen.height/2, 100,100),"You lose");
         }
-        if (GUI.Button(new Rect(20,70,100,50),"Restart"))
+        if (GUI.Button(new Rect(0,70,75,50),"Restart"))
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
-        GUI.Box(new Rect(20, 130, 100, 50), "Score: " + currentPoints);
+        GUI.Box(new Rect(0, 130, 75, 20), "Score: " + currentPoints);
     }
 
 }
