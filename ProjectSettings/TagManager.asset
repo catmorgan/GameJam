@@ -8,6 +8,7 @@ TagManager:
   - Water
   - Boxes
   - Sailor
+  - Wall
   layers:
   - Default
   - TransparentFX

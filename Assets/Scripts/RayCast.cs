@@ -11,12 +11,17 @@ public class RayCast : MonoBehaviour {
 
         //Debug make the ray visible
         Vector3 forward = transform.TransformDirection(Vector3.forward) * 2;
-        Debug.DrawRay(transform.position,forward,Color.green);
+        Debug.DrawRay(transform.position,forward,Color.red);
 
         if (Physics.Raycast(transform.position, (forward), out hit))
         {
             rayDistance = hit.distance;
             print(rayDistance + " " + hit.collider.gameObject.name);
+        }
+
+        if(Physics.Raycast(forward, out hit, rayDistance))
+        {
+
         }
     }
 }
