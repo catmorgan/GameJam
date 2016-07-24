@@ -17,10 +17,23 @@ public class RayCast : MonoBehaviour {
         {
             rayDistance = hit.distance;
             print(rayDistance + " " + hit.collider.gameObject.name);
-        }
 
-        if(Physics.Raycast(forward, out hit, rayDistance))
-        {
+            //what did we hit?
+            if(hit.collider.tag == "Boxes" || hit.collider.tag == "Wall")
+            {
+                if (hit.distance == 1)
+                {
+                    //bad normal move 
+                }
+                else
+                {
+                    //bad lunge move
+                }
+            }
+            else
+            {
+                //Good Move
+            }
 
         }
     }
