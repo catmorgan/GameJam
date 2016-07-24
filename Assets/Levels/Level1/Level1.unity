@@ -1039,7 +1039,7 @@ Prefab:
     - target: {fileID: 11490916, guid: 7a2b50abc5cdf874ca94cab457916065, type: 2}
       propertyPath: SharkBite
       value: 
-      objectReference: {fileID: 165350, guid: 7a2b50abc5cdf874ca94cab457916065, type: 2}
+      objectReference: {fileID: 115308, guid: 260e4dce66dbdb64ca67046d6a0024b0, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7a2b50abc5cdf874ca94cab457916065, type: 2}
   m_IsPrefabParent: 0

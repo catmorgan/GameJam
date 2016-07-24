@@ -145,7 +145,7 @@ public class SharkMovement : MonoBehaviour
 
 			//		return true;
 
-			if (hitObject == "Floor" || hitObject == "Water")
+			if (hitObject == "Floor" || hitObject == "Water" || hitObject == "Torpedos")
 				return true;
 			else
 				return false;

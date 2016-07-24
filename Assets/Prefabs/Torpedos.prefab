@@ -42,7 +42,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 2100000, guid: 59e609a6de1a7274e97fabc46f523a53, type: 2}
+  - {fileID: 2100000, guid: 4db59392edebaff42ba38ec5eb28e263, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
@@ -90,9 +90,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   waterTile01: {fileID: 2100000, guid: d45022af37b9662489322f777398a197, type: 2}
   Water: {fileID: 440356, guid: 7be4bb57ca5c3ec4ba52584a1e7c0d66, type: 2}
-  Renderer: {fileID: 0}
+  Renderer: {fileID: 2389970}
   _TorpedoState: 0
-  SharkBite: {fileID: 0}
+  SharkBite: {fileID: 115308, guid: 260e4dce66dbdb64ca67046d6a0024b0, type: 2}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
