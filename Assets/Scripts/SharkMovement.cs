@@ -104,6 +104,7 @@ public class SharkMovement : MonoBehaviour
     void OnCollisionEnter (Collision col)
     {
         var tile = col.transform.tag;
+        Debug.Log(tile);
         if (tile == "Water")
         {
             floorType = FloorType.Water;

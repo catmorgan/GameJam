@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Floor
   - Water
+  - Boxes
   - New Tag
   layers:
   - Default
@@ -16,7 +17,7 @@ TagManager:
   - UI
   - 
   - 
-  - 
+  - 'Floor '
   - 
   - 
   - 
