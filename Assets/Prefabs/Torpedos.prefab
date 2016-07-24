@@ -85,10 +85,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 165350}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 66a2e7a5555d4814aaebefa8ed0a191e, type: 3}
+  m_Script: {fileID: 11500000, guid: 0ec3dc4df65e2da4aaf7dde9b0604be3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  waterTile01: {fileID: 2100000, guid: d45022af37b9662489322f777398a197, type: 2}
   Water: {fileID: 440356, guid: 7be4bb57ca5c3ec4ba52584a1e7c0d66, type: 2}
+  Renderer: {fileID: 0}
+  _TorpedoState: 0
+  SharkBite: {fileID: 0}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
