@@ -149,12 +149,6 @@ MonoBehaviour:
   LeftLandShark: {fileID: 2100000, guid: 2bcc8ccefbfc8d0428028e8169215853, type: 2}
   RightLandShark: {fileID: 2100000, guid: e28bebec2ec815d4f9ead96c4de9ffd3, type: 2}
   Renderer: {fileID: 2311940}
-  prevPosition: {x: 0, y: 0, z: 0}
-  prevRotation: {x: 0, y: 0, z: 0, w: 0}
-  speed: 0
-  floorType: 0
-  _levelController: {fileID: 0}
-  playerDirection: 0
 --- !u!114 &11449542
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -168,7 +162,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_EventMask:
     serializedVersion: 2
-    m_Bits: 4294966991
+    m_Bits: 0
 --- !u!114 &11469676
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -180,6 +174,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 520ab664f221f4146a6a717b1d89bf86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myLayerMask:
+    serializedVersion: 2
+    m_Bits: 768
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
