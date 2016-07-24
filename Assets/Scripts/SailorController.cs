@@ -8,6 +8,7 @@ public class SailorController : MonoBehaviour {
     public Material Dead;
     public Renderer Renderer;
     public SailorState _SailorState;
+    public GameObject SharkBite;
 
     public enum SailorState {
         Dead,
@@ -42,10 +43,15 @@ public class SailorController : MonoBehaviour {
 
     }
 
-    void OnCollisionEnter(Collision col)
+    IEnumerator OnCollisionEnter(Collision col)
     {
-        if (col.transform.tag == "Player")
+        if (col.transform.tag == "Player" && _SailorState == SailorState.Alive)
         {
+            var sharkbite = Instantiate(SharkBite, 
+                new Vector3(this.transform.position.x, 2, this.transform.position.z), 
+                SharkBite.transform.rotation) as GameObject;
+            yield return new WaitForSeconds(0.4f);
+            Destroy(sharkbite);
             _SailorState = SailorState.Dead;
             Renderer.material = Dead;
             _levelController.currentPoints++;

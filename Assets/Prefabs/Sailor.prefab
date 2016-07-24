@@ -109,6 +109,7 @@ MonoBehaviour:
   Dead: {fileID: 2100000, guid: dc754c85b6a465f47ac577f83657091c, type: 2}
   Renderer: {fileID: 2338104}
   _SailorState: 1
+  SharkBite: {fileID: 115308, guid: 260e4dce66dbdb64ca67046d6a0024b0, type: 2}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
