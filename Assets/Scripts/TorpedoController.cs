@@ -4,6 +4,7 @@ using System.Collections;
 public class TorpedoController : MonoBehaviour {
     private LevelController _levelController;
     public Material waterTile01;
+    public Transform Water;
     public Renderer Renderer;
     public TorpedoState _TorpedoState;
     public GameObject SharkBite;
@@ -52,4 +53,12 @@ public class TorpedoController : MonoBehaviour {
         }
     }
 
+    void OnCollisionExit(Collision col)
+    {
+        if (col.transform.tag == "Player")
+        {
+            Instantiate(Water, this.transform.position, this.transform.rotation);
+            Destroy(this.gameObject);
+        }
+    }
 }
