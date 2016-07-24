@@ -7,7 +7,7 @@ TagManager:
   - Floor
   - Water
   - Boxes
-  - New Tag
+  - Sailor
   layers:
   - Default
   - TransparentFX
@@ -18,7 +18,7 @@ TagManager:
   - 
   - 
   - 'Floor '
-  - 
+  - Boxes
   - 
   - 
   - 

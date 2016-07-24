@@ -36,7 +36,7 @@ public class SharkMovement : MonoBehaviour
     {
         prevPosition = transform.position;
         prevRotation = transform.rotation;
-        speed = FloorTile.localScale.x * 2;
+        speed = FloorTile.localScale.x;
         Renderer = GetComponent<Renderer>();
         _levelController = GameObject.Find("Main Camera").GetComponent<LevelController>();
     }
