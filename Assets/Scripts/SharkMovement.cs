@@ -70,6 +70,7 @@ public class SharkMovement : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.W) && prevRotation == transform.rotation)
             {
                 prevPosition.z += speed;
+                
                 playerDirection = Direction.Up;
                 //UpdateShark(Direction.Up);
                 _levelController.CurrentState = LevelController.TurnState.Water;

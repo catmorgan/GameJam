@@ -32,13 +32,21 @@ public class LevelController : MonoBehaviour
                 break;
             case TurnState.Water:
                 this.GetComponent<WaterController>().Flood();
-                CurrentState = TurnState.Player;
+                CurrentState = TurnState.Victim;
                 break;
             case TurnState.Lose:
                 break;
             case TurnState.Win:
                 break;
             case TurnState.Victim:
+                var sailors = GameObject.FindGameObjectsWithTag("Sailor");
+                foreach(var sailor in sailors)
+                {
+                    var drownCount = sailor.GetComponent<SailorController>().drownCountdown;
+                    if (drownCount > 0) drownCount++;
+                        
+                }
+                CurrentState = TurnState.Player;
                 break;
         }
     }
