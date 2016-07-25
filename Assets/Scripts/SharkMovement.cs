@@ -46,12 +46,19 @@ public class SharkMovement : MonoBehaviour
 		bool test = checkRaycast ();
 		print(test);
 
-		if (_levelController.CurrentState == LevelController.TurnState.Player) 
+        //Lose a turn on land
+        if (_levelController.CurrentState == LevelController.TurnState.Player && floorType == FloorType.Floor)
+        {
+            _levelController.CurrentState = LevelController.TurnState.Water;
+        }
+
+        if (_levelController.CurrentState == LevelController.TurnState.Player) 
 		{
-			//DIRECTION
-			if (Input.GetKeyDown (KeyCode.W) || Input.GetKeyDown (KeyCode.UpArrow)) {
-				transform.rotation = Quaternion.Euler (0, 0, 0);
-				UpdateShark (Direction.Up);
+
+            //DIRECTION
+            if (Input.GetKeyDown (KeyCode.W) || Input.GetKeyDown (KeyCode.UpArrow)) {
+			    transform.rotation = Quaternion.Euler (0, 0, 0);
+			    UpdateShark (Direction.Up);
 			}
 			if (Input.GetKeyDown (KeyCode.S) || Input.GetKeyDown (KeyCode.DownArrow)) {
 				transform.rotation = Quaternion.Euler (0, 180, 0);
