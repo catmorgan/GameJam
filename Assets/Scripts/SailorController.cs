@@ -60,11 +60,6 @@ public class SailorController : MonoBehaviour {
             Instantiate(Dead, this.transform.position, Dead.transform.rotation);
             _levelController.currentPoints++;
             Destroy(this.gameObject);
-            
-        }
-        if (col.transform.tag == "Water")
-        {
-            print("sailor hit water");
         }
     }
 
@@ -75,8 +70,6 @@ public class SailorController : MonoBehaviour {
             _SailorState = SailorState.Dead;
             Instantiate(Drowned, this.transform.position, Drowned.transform.rotation);
             Destroy(this.gameObject);
-            //Instantiate(Drowned, this.transform.position, this.transform.rotation);
-            //this.gameObject.SetActive(false);
         }
     }
 }
