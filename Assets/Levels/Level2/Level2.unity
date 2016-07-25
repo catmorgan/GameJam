@@ -1575,6 +1575,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentPoints: 0
+  youLose:
+    m_Text: 
+    m_Image: {fileID: 0}
+    m_Tooltip: 
+  nextLevel:
+    m_Text: 
+    m_Image: {fileID: 0}
+    m_Tooltip: 
+  youWin:
+    m_Text: 
+    m_Image: {fileID: 0}
+    m_Tooltip: 
   CurrentState: 0
 --- !u!114 &1492509144
 MonoBehaviour:
@@ -1666,7 +1678,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1524672444}
   m_LocalRotation: {x: 0.40821794, y: -0.23456973, z: 0.109381676, w: 0.87542605}
-  m_LocalPosition: {x: 0.24569449, y: 1.671185, z: 1.1556367}
+  m_LocalPosition: {x: 0.2456944, y: 1.671185, z: 1.1556367}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
   m_Children: []
