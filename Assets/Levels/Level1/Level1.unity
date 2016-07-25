@@ -783,6 +783,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentPoints: 0
+  youLose:
+    m_Text: 
+    m_Image: {fileID: 2800000, guid: 598da8c25b46abf4a91f614089708410, type: 3}
+    m_Tooltip: 
+  nextLevel:
+    m_Text: 
+    m_Image: {fileID: 2800000, guid: 5f0831b012ce64548894ff685c4088d3, type: 3}
+    m_Tooltip: 
+  youWin:
+    m_Text: 
+    m_Image: {fileID: 2800000, guid: 88a754850e183c743a091fcb8f60b047, type: 3}
+    m_Tooltip: 
   CurrentState: 0
 --- !u!114 &1492509144
 MonoBehaviour:

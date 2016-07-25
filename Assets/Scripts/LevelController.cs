@@ -6,6 +6,9 @@ public class LevelController : MonoBehaviour
 {
     private int TotalPointsPossible;
     public int currentPoints = 0;
+    public GUIContent youLose;
+    public GUIContent nextLevel;
+    public GUIContent youWin;
 
     public enum TurnState
     {
@@ -80,16 +83,21 @@ public class LevelController : MonoBehaviour
 
     void OnGUI()
     {
+        if (CurrentState == TurnState.Win && 
+            SceneManager.GetActiveScene().buildIndex == SceneManager.sceneCount - 1)
+        {
+            GUI.Box(new Rect(0, 0, Screen.width, Screen.height), youWin);
+        }
         if (CurrentState == TurnState.Win || (CurrentState == TurnState.Lose && currentPoints > 0))
         {
-            if (GUI.Button(new Rect(Screen.width / 2, Screen.height / 2, 100, 20), "Next Level"))
+            if (GUI.Button(new Rect(70,0, Screen.width - 70, Screen.height), nextLevel))
             {
                 SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
             }
         }
         if (CurrentState == TurnState.Lose && currentPoints == 0)
         {
-           GUI.Box(new Rect(Screen.width /2, Screen.height/2, 100,30),"You lose");
+           GUI.Box(new Rect(0,0, Screen.width,Screen.height),youLose);
         }
         if (GUI.Button(new Rect(0,70,75,50),"Restart"))
         {
