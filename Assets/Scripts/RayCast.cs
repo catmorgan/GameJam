@@ -20,10 +20,6 @@ public class RayCast : MonoBehaviour {
 		if (Physics.Raycast(transform.position, fwd, out hit, 2, myLayerMask))
 			Debug.DrawRay(transform.position, fwd, Color.red);
 
-		print (hit.distance);
-		print (hit.collider.gameObject.name);
-		print (hit.collider.tag);
-
 
 //
 //        if (Physics.Raycast(transform.position, (forward), out hit, myLayerMask))

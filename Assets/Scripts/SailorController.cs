@@ -4,9 +4,9 @@ using System.Collections;
 public class SailorController : MonoBehaviour {
     private LevelController _levelController;
     public int drownCountdown = 0;
-    public Material Drowned;
-    public Material Dead;
-    public Renderer Renderer;
+    public GameObject Drowned;
+    public GameObject Dead;
+    public SpriteRenderer Renderer;
     public SailorState _SailorState;
     public GameObject SharkBite;
 
@@ -18,7 +18,7 @@ public class SailorController : MonoBehaviour {
     // Use this for initialization
     void Start () {
         _levelController = GameObject.Find("Main Camera").GetComponent<LevelController>();
-        Renderer = GetComponent<Renderer>();
+        Renderer = this.GetComponent<SpriteRenderer>();
         _SailorState = SailorState.Alive;
     }
 	
@@ -57,8 +57,14 @@ public class SailorController : MonoBehaviour {
             yield return new WaitForSeconds(0.4f);
             Destroy(sharkbite);
             _SailorState = SailorState.Dead;
-            Renderer.material = Dead;
+            Instantiate(Dead, this.transform.position, Dead.transform.rotation);
             _levelController.currentPoints++;
+            Destroy(this.gameObject);
+            
+        }
+        if (col.transform.tag == "Water")
+        {
+            print("sailor hit water");
         }
     }
 
@@ -67,7 +73,10 @@ public class SailorController : MonoBehaviour {
         if (drownCountdown >= 2)
         {
             _SailorState = SailorState.Dead;
-            Renderer.material = Drowned;
+            Instantiate(Drowned, this.transform.position, Drowned.transform.rotation);
+            Destroy(this.gameObject);
+            //Instantiate(Drowned, this.transform.position, this.transform.rotation);
+            //this.gameObject.SetActive(false);
         }
     }
 }

@@ -116,7 +116,6 @@ public class SharkMovement : MonoBehaviour
 	void OnCollisionEnter (Collision col)
 	{
 		var tile = col.transform.tag;
-		Debug.Log(tile);
 		if (tile == "Water")
 		{
 			floorType = FloorType.Water;
@@ -139,13 +138,12 @@ public class SharkMovement : MonoBehaviour
 
 			string hitObject = hit.collider.tag;
 
-			print ("hit distance is " + hit.distance);
-			print ("hit object is " + hitObject);
 			//		print (hit.collider.tag);
 
 			//		return true;
 
-			if (hitObject == "Floor" || hitObject == "Water" || hitObject == "Torpedos")
+			if (hitObject == "Floor" || hitObject == "Water" 
+                || hitObject == "Torpedos" || hitObject == "Sailor")
 				return true;
 			else
 				return false;

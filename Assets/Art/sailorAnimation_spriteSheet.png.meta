@@ -1,9 +1,14 @@
 fileFormatVersion: 2
 guid: dae7a61d83ac5794eb094abbdb94a49d
-timeCreated: 1469326932
+timeCreated: 1469401688
 licenseType: Free
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: sailorAnimation_spriteSheet_0
+    21300002: sailorAnimation_spriteSheet_1
+    21300004: sailorAnimation_spriteSheet_2
+    21300006: sailorAnimation_spriteSheet_3
+    21300008: sailorAnimation_spriteSheet_4
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -30,27 +35,138 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     filterMode: -1
-    aniso: -1
+    aniso: 16
     mipBias: -1
-    wrapMode: -1
-  nPOTScale: 1
+    wrapMode: 1
+  nPOTScale: 0
   lightmap: 0
   rGBM: 0
   compressionQuality: 50
   allowsAlphaSplitting: 0
-  spriteMode: 0
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spritePixelsToUnits: 100
-  alphaIsTransparency: 0
-  textureType: -1
+  alphaIsTransparency: 1
+  textureType: 8
   buildTargetSettings: []
   spriteSheet:
-    serializedVersion: 2
-    sprites: []
+    sprites:
+    - name: sailorAnimation_spriteSheet_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 78
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 5, y: 23}
+        - {x: 4, y: 24}
+        - {x: -5, y: 24}
+        - {x: -9, y: 23}
+        - {x: -11, y: 16}
+        - {x: -11, y: -6}
+        - {x: -8, y: -25}
+        - {x: 3, y: -25}
+        - {x: 5, y: -23}
+        - {x: 10, y: -4}
+        - {x: 10, y: 14}
+    - name: sailorAnimation_spriteSheet_1
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 78
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -7, y: 17}
+        - {x: -9, y: 16}
+        - {x: -11, y: 12}
+        - {x: -11, y: -22}
+        - {x: -10, y: -25}
+        - {x: 5, y: -25}
+        - {x: 7, y: -24}
+        - {x: 10, y: -14}
+        - {x: 10, y: 8}
+        - {x: 4, y: 17}
+    - name: sailorAnimation_spriteSheet_2
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 78
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 5, y: 23}
+        - {x: 4, y: 24}
+        - {x: -5, y: 24}
+        - {x: -9, y: 23}
+        - {x: -11, y: 16}
+        - {x: -11, y: -6}
+        - {x: -8, y: -25}
+        - {x: 3, y: -25}
+        - {x: 5, y: -23}
+        - {x: 10, y: -4}
+        - {x: 10, y: 14}
+    - name: sailorAnimation_spriteSheet_3
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 78
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 7, y: 24}
+        - {x: -9, y: 24}
+        - {x: -12, y: 22}
+        - {x: -13, y: 19}
+        - {x: -13, y: 13}
+        - {x: -9, y: 10}
+        - {x: -8, y: -22}
+        - {x: -7, y: -25}
+        - {x: 3, y: -25}
+        - {x: 5, y: -23}
+        - {x: 10, y: -7}
+        - {x: 10, y: 13}
+    - name: sailorAnimation_spriteSheet_4
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 78
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 4, y: 24}
+        - {x: -6, y: 24}
+        - {x: -9, y: 23}
+        - {x: -20, y: 8}
+        - {x: -20, y: 2}
+        - {x: -19, y: 0}
+        - {x: -16, y: 0}
+        - {x: -8, y: -23}
+        - {x: -6, y: -25}
+        - {x: 3, y: -25}
+        - {x: 5, y: -23}
+        - {x: 10, y: -3}
+        - {x: 10, y: 13}
     outline: []
   spritePackingTag: 
   userData: 

@@ -89,7 +89,7 @@ public class LevelController : MonoBehaviour
         }
         if (CurrentState == TurnState.Lose && currentPoints == 0)
         {
-           GUI.Box(new Rect(Screen.width /2, Screen.height/2, 100,100),"You lose");
+           GUI.Box(new Rect(Screen.width /2, Screen.height/2, 100,30),"You lose");
         }
         if (GUI.Button(new Rect(0,70,75,50),"Restart"))
         {
