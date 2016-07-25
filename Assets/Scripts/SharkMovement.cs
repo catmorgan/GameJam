@@ -50,11 +50,11 @@ public class SharkMovement : MonoBehaviour
 		//		print(test);
 
 		//Lose a turn on land
-		if (_levelController.CurrentState == LevelController.TurnState.Player && floorType == FloorType.Floor)
+		/*if (_levelController.CurrentState == LevelController.TurnState.Player && floorType == FloorType.Floor)
 		{
 			StartCoroutine("LoseATurn");
 			_levelController.CurrentState = LevelController.TurnState.Water;
-		}
+		}*/
 
 		if (_levelController.CurrentState == LevelController.TurnState.Player) 
 		{
@@ -131,11 +131,11 @@ public class SharkMovement : MonoBehaviour
 		}
 	}
 
-	IEnumerator LoseATurn()
+	/*IEnumerator LoseATurn()
 	{
 		print ("About to wait 3 seconds");
 		yield return new WaitForSeconds(3);
-	}
+	}*/
 
 
 	void OnCollisionEnter (Collision col)
