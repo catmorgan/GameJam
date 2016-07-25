@@ -84,8 +84,7 @@ public class SharkMovement : MonoBehaviour
 			{
 				if (checkRaycast ()) {
 					prevPosition.z += speed;
-
-					playerDirection = Direction.Up;
+                    playerDirection = Direction.Up;
 					//UpdateShark(Direction.Up);
 
 					if (checkLastTurn ()) {
@@ -142,10 +141,9 @@ public class SharkMovement : MonoBehaviour
 	void OnCollisionEnter (Collision col)
 	{
 		var tile = col.transform.tag;
-		<<<<<<< HEAD
+
 		print ("current tile is " + tile);
-		=======
-		>>>>>>> origin/master
+
 		if (tile == "Water")
 		{
 			floorType = FloorType.Water;
@@ -193,21 +191,12 @@ public class SharkMovement : MonoBehaviour
 
 			hitObject = hit.collider.tag;
 
-			<<<<<<< HEAD
 			//			print ("hit distance is " + hit.distance);
 			//			print ("hit object is " + hitObject);
-			=======
-			>>>>>>> origin/master
 			//		print (hit.collider.tag);
 
-
-			<<<<<<< HEAD
-			if (hitObject == "Floor" || hitObject == "Water" || hitObject == "Torpedos"){
-				=======
-				if (hitObject == "Floor" || hitObject == "Water" 
-					|| hitObject == "Torpedos" || hitObject == "Sailor")
-					>>>>>>> origin/master
-					return true;
+			if (hitObject == "Floor" || hitObject == "Water" || hitObject == "Torpedos" || hitObject == "Sailor"){
+                return true;
 			}
 			else
 				return false;
