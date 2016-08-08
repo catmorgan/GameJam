@@ -69,7 +69,7 @@ Animator:
   m_GameObject: {fileID: 132590}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 5a5b7987345ba504dad85cbc94c71a00, type: 2}
+  m_Controller: {fileID: 9100000, guid: 7002ec1d4406cb2458408be0d08bc7b4, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -89,8 +89,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   drownCountdown: 0
-  Drowned: {fileID: 149390, guid: 3272174695e442d41ba3baee12efffd0, type: 2}
-  Dead: {fileID: 175132, guid: 735ef722247ecc740ad8a2ae044e508e, type: 2}
+  Drowned: {fileID: 149390, guid: ab161988c7350fd42840951169dbe120, type: 2}
+  Dead: {fileID: 175132, guid: 7b219ab24b3998f48bb8810b5b8560a4, type: 2}
   Renderer: {fileID: 21205156}
   _SailorState: 1
   SharkBite: {fileID: 115308, guid: 260e4dce66dbdb64ca67046d6a0024b0, type: 2}

@@ -1,10 +1,18 @@
 fileFormatVersion: 2
 guid: 8f700c338567a3e498350817a11e08cc
-timeCreated: 1469300751
+timeCreated: 1470635164
 licenseType: Free
 MonoImporter:
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - FloorTile: {fileID: 422826, guid: 84e13318773712a4e82653981cd5d402, type: 2}
+  - LeftShark: {instanceID: 0}
+  - RightShark: {instanceID: 0}
+  - FrontShark: {instanceID: 0}
+  - FrontLandShark: {instanceID: 0}
+  - LeftLandShark: {instanceID: 0}
+  - RightLandShark: {instanceID: 0}
+  - Renderer: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
