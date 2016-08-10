@@ -69,6 +69,7 @@ public class SailorController : MonoBehaviour {
         {
             _SailorState = SailorState.Dead;
             Instantiate(Drowned, this.transform.position, Drowned.transform.rotation);
+            _levelController.TotalPointsPossible--;
             Destroy(this.gameObject);
         }
     }

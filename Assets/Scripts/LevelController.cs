@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 
 public class LevelController : MonoBehaviour
 {
-    private int TotalPointsPossible;
+    public int TotalPointsPossible = 0;
     public int currentPoints = 0;
     public GUIContent youLose;
     public GUIContent nextLevel;
@@ -22,7 +22,7 @@ public class LevelController : MonoBehaviour
 
     public TurnState CurrentState;
 
-    void Start()
+    public void Start()
     {
         CurrentState = TurnState.Player;
         TotalPointsPossible = GameObject.FindGameObjectsWithTag("Sailor").Length;
@@ -35,16 +35,17 @@ public class LevelController : MonoBehaviour
             case TurnState.Start:
                 break;
             case TurnState.Player:
-                LoseConditions();
+                print("Current Points: "+ currentPoints+" Total Points: "+ TotalPointsPossible);
+           //     LoseConditions();
                 WinConditions();
                 break;
             case TurnState.Water:
                 this.GetComponent<WaterController>().Flood();
                 CurrentState = TurnState.Victim;
                 break;
-            case TurnState.Lose:
-                break;
             case TurnState.Win:
+                break;
+            case TurnState.Lose:
                 break;
             case TurnState.Victim:
                 var sailors = GameObject.FindGameObjectsWithTag("Sailor");
@@ -59,7 +60,7 @@ public class LevelController : MonoBehaviour
         }
     }
 
-    void LoseConditions() {
+/*    void LoseConditions() {
         var FloorTiles = GameObject.FindGameObjectsWithTag("Floor");
         var Sailors = GameObject.FindGameObjectsWithTag("Sailor");
         if (FloorTiles.Length == 0 || Sailors.Length == 0)
@@ -67,31 +68,41 @@ public class LevelController : MonoBehaviour
             CurrentState = TurnState.Lose;
         }
     }
-
+*/
     void WinConditions()
     {
-        //gets at least one sailor
-        if (currentPoints > 0 )
-        {
+        var FloorTiles = GameObject.FindGameObjectsWithTag("Floor");
+        var Sailors = GameObject.FindGameObjectsWithTag("Sailor");
 
-        }
-        //eats all sailors
-        if (currentPoints == TotalPointsPossible)
+        if (FloorTiles.Length == 0 && Sailors.Length > 1)
         {
-            CurrentState = TurnState.Win;
+            CurrentState = TurnState.Lose;
         }
+
+        if (Sailors.Length == 0)
+        {
+            if (currentPoints == TotalPointsPossible)
+            {
+                CurrentState = TurnState.Win;
+            }
+            else
+            {
+                CurrentState = TurnState.Lose;
+            }
+        }
+
     }
 
     void OnGUI()
     {
-        if (CurrentState == TurnState.Win /*&& 
-            SceneManager.GetActiveScene().buildIndex == SceneManager.sceneCount - 1*/)
+      /*  if (CurrentState == TurnState.Win &&  SceneManager.GetActiveScene().buildIndex == SceneManager.sceneCount - 1)
         {
-            print("cat butts");
+            print("i won everything!");
             GUI.Box(new Rect(0, 0, Screen.width, Screen.height), youWin);
-        }
+        }*/
         if (CurrentState == TurnState.Win || (CurrentState == TurnState.Lose && currentPoints > 0))
         {
+            print("i never win");
             if (GUI.Button(new Rect(70,0, Screen.width - 70, Screen.height), nextLevel))
             {
                 SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
