@@ -50,11 +50,11 @@ public class SharkMovement : MonoBehaviour
 		//		print(test);
 
 		//Lose a turn on land
-		if (_levelController.CurrentState == LevelController.TurnState.Player && floorType == FloorType.Floor)
+		/*if (_levelController.CurrentState == LevelController.TurnState.Player && floorType == FloorType.Floor)
 		{
 			//StartCoroutine("LoseATurn");
 			_levelController.CurrentState = LevelController.TurnState.Water;
-		}
+		}*/
 
 		if (_levelController.CurrentState == LevelController.TurnState.Player) 
 		{
