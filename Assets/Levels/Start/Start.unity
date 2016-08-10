@@ -257,6 +257,7 @@ GameObject:
   - 33: {fileID: 1672461138}
   - 64: {fileID: 1672461137}
   - 23: {fileID: 1672461136}
+  - 114: {fileID: 1672461140}
   m_Layer: 0
   m_Name: Plane
   m_TagString: Untagged
@@ -274,7 +275,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 2100000, guid: 5ee630681a7ac3f4db4f2557a69c5ffd, type: 2}
+  - {fileID: 2100000, guid: fd6610e895594fc4a8156e92438e5d4a, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
@@ -322,3 +323,28 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 2
+--- !u!114 &1672461140
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1672461135}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b9b9af3b4b691a41a5c65557704cba9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentPoints: 0
+  youLose:
+    m_Text: 
+    m_Image: {fileID: 0}
+    m_Tooltip: 
+  nextLevel:
+    m_Text: 
+    m_Image: {fileID: 0}
+    m_Tooltip: 
+  youWin:
+    m_Text: 
+    m_Image: {fileID: 0}
+    m_Tooltip: 
+  CurrentState: 0

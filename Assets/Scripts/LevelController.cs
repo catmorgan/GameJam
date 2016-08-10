@@ -61,7 +61,8 @@ public class LevelController : MonoBehaviour
 
     void LoseConditions() {
         var FloorTiles = GameObject.FindGameObjectsWithTag("Floor");
-        if (FloorTiles.Length == 0)
+        var Sailors = GameObject.FindGameObjectsWithTag("Sailor");
+        if (FloorTiles.Length == 0 || Sailors.Length == 0)
         {
             CurrentState = TurnState.Lose;
         }
@@ -83,9 +84,10 @@ public class LevelController : MonoBehaviour
 
     void OnGUI()
     {
-        if (CurrentState == TurnState.Win && 
-            SceneManager.GetActiveScene().buildIndex == SceneManager.sceneCount - 1)
+        if (CurrentState == TurnState.Win /*&& 
+            SceneManager.GetActiveScene().buildIndex == SceneManager.sceneCount - 1*/)
         {
+            print("cat butts");
             GUI.Box(new Rect(0, 0, Screen.width, Screen.height), youWin);
         }
         if (CurrentState == TurnState.Win || (CurrentState == TurnState.Lose && currentPoints > 0))
