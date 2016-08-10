@@ -47,7 +47,7 @@ public class SailorController : MonoBehaviour {
     {
         if (col.transform.tag == "Player" && _SailorState == SailorState.Alive)
         {
-
+            _SailorState = SailorState.Dead;
             var sharkbite = Instantiate(SharkBite, new Vector3(
                 Camera.main.transform.position.x,
                 2,
@@ -56,7 +56,7 @@ public class SailorController : MonoBehaviour {
 
             yield return new WaitForSeconds(0.4f);
             Destroy(sharkbite);
-            _SailorState = SailorState.Dead;
+
             Instantiate(Dead, this.transform.position, Dead.transform.rotation);
             _levelController.currentPoints++;
             Destroy(this.gameObject);
