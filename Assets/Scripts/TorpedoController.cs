@@ -39,14 +39,14 @@ public class TorpedoController : MonoBehaviour {
         if (col.transform.tag == "Player" && _TorpedoState == TorpedoState.Alive)
         {
 
-            //var sharkbite = Instantiate(SharkBite, new Vector3(
-            //    Camera.main.transform.position.x,
-            //    2,
-            //    Camera.main.transform.position.z),
-            //        SharkBite.transform.rotation) as GameObject;
+            var sharkbite = Instantiate(SharkBite, new Vector3(
+                Camera.main.transform.position.x,
+                2,
+                Camera.main.transform.position.z),
+                    SharkBite.transform.rotation) as GameObject;
 
             yield return new WaitForSeconds(0.4f);
-            //Destroy(sharkbite);
+            Destroy(sharkbite);
             _TorpedoState = TorpedoState.Dead;
             Renderer.material = waterTile01;
         }

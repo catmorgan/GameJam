@@ -15,7 +15,8 @@ public class SharkMovement : MonoBehaviour
 	private string hitObject;
 	private string lastTurnHitObject;
 	private bool turn = true;
-	private Vector3 prevPosition;
+    private int movesLeft = 1;
+    private Vector3 prevPosition;
 	private Quaternion prevRotation;
 	private float speed;
 	private FloorType floorType;
@@ -48,13 +49,6 @@ public class SharkMovement : MonoBehaviour
 	void Update() {
 		//		bool test = checkRaycast ();
 		//		print(test);
-
-		//Lose a turn on land
-		/*if (_levelController.CurrentState == LevelController.TurnState.Player && floorType == FloorType.Floor)
-		{
-			//StartCoroutine("LoseATurn");
-			_levelController.CurrentState = LevelController.TurnState.Water;
-		}*/
 
 		if (_levelController.CurrentState == LevelController.TurnState.Player) 
 		{
@@ -93,7 +87,7 @@ public class SharkMovement : MonoBehaviour
 				}
 
 			}
-			if ((Input.GetKeyDown (KeyCode.S) || Input.GetKeyDown (KeyCode.DownArrow)) && prevRotation == transform.rotation) 
+			else if ((Input.GetKeyDown (KeyCode.S) || Input.GetKeyDown (KeyCode.DownArrow)) && prevRotation == transform.rotation) 
 			{
 				if (checkRaycast ()) {
 					prevPosition.z -= speed;
@@ -104,7 +98,7 @@ public class SharkMovement : MonoBehaviour
 					}
 				}
 			}
-			if ((Input.GetKeyDown (KeyCode.A) || Input.GetKeyDown (KeyCode.LeftArrow)) && prevRotation == transform.rotation) 
+			else if ((Input.GetKeyDown (KeyCode.A) || Input.GetKeyDown (KeyCode.LeftArrow)) && prevRotation == transform.rotation) 
 			{
 				if (checkRaycast ()) {
 					prevPosition.x -= speed;
@@ -115,7 +109,7 @@ public class SharkMovement : MonoBehaviour
 					}
 				}
 			}
-			if ((Input.GetKeyDown (KeyCode.D) || Input.GetKeyDown (KeyCode.RightArrow)) && prevRotation == transform.rotation) {
+			else if ((Input.GetKeyDown (KeyCode.D) || Input.GetKeyDown (KeyCode.RightArrow)) && prevRotation == transform.rotation) {
 				if (checkRaycast ()) {
 					prevPosition.x += speed;
 					playerDirection = Direction.Right;
@@ -130,12 +124,6 @@ public class SharkMovement : MonoBehaviour
 			transform.position = prevPosition;
 		}
 	}
-
-	/*IEnumerator LoseATurn()
-	{
-		print ("About to wait 3 seconds");
-		yield return new WaitForSeconds(3);
-	}*/
 
 
 	void OnCollisionEnter (Collision col)
@@ -162,22 +150,43 @@ public class SharkMovement : MonoBehaviour
 	bool checkLastTurn(){
 
 
-		if ((lastTurnHitObject == "Water" && turn == true) || (lastTurnHitObject == "Floor" && turn == true)) {
+        /*		if ((lastTurnHitObject == "Water" && turn == true) || (lastTurnHitObject == "Floor" && turn == true)) {
 
-			turn = false;
-			print ("Last turn hit object was " + lastTurnHitObject);
-			print ("turn is " + turn);
-			print ("_________");
-			return true;
-		}
-		else
-			turn = true;
-		print ("Last turn hit object was " + lastTurnHitObject);
-		print ("turn is " + turn);
-		print ("_________");
-		return false;
+                    turn = false;
+                    print ("Last turn hit object was " + lastTurnHitObject);
+                    print ("turn is " + turn);
+                    print ("_________");
+                    return true;
+                }
+                else
+                    turn = true;
+                print ("Last turn hit object was " + lastTurnHitObject);
+                print ("turn is " + turn);
+                print ("_________");
+                return false;
+        */
+        if (movesLeft != 0)  //Kevin: return true = start water's turn.  
+        {
+            if (lastTurnHitObject == "Floor") //Your turn ends IMMIEDATLY on land.
+            {
+                movesLeft = 1;
+                lastTurnHitObject = "";
+                return true;
+            }
+            else //You get 2 moves on water.
+            {
+                movesLeft = movesLeft - 1;
+                return false;
+            }
+        }
+        else
+        {
+            movesLeft = 1;
+            lastTurnHitObject = "";
+            return true;
+        }
 
-	}
+    }
 
 
 	bool checkRaycast()
